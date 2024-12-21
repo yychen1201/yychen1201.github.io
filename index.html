@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hans-亨</title>
+  <meta name="description" content="嗨嗨!!我是一位台灣的高中生.w.">
+  <meta property="og:title" content="Hans-亨" />
+  <meta property="og:image" content="./avatar.gif" />
+  <meta property="og:description" content="嗨嗨!!我是一位台灣的高中生.w." />
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="https://view.hans0805.me/script.js"
+    data-website-id="24f16021-e261-496d-9cca-37b70c80641a"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DR4VR4K20V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-DR4VR4K20V');
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    (function ($) {
+      $.fn.snow = function (options) {
+        var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+          documentHeight = $(document).height(),
+          documentWidth = $(document).width(),
+          defaults = {
+            minSize: 10,
+            maxSize: 20,
+            newOn: 1000,
+            flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+          },
+          options = $.extend({}, defaults, options);
+        var interval = setInterval(function () {
+          var startPositionLeft = Math.random() * documentWidth - 100,
+            startOpacity = 0.5 + Math.random(),
+            sizeFlake = options.minSize + Math.random() * options.maxSize,
+            endPositionTop = documentHeight - 200,
+            endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+            durationFall = documentHeight * 10 + Math.random() * 5000;
+          $flake.clone().appendTo('body').css({
+            left: startPositionLeft,
+            opacity: startOpacity,
+            'font-size': sizeFlake,
+            color: options.flakeColor
+          }).animate({
+            top: endPositionTop,
+            left: endPositionLeft,
+            opacity: 0.2
+          }, durationFall, 'linear', function () {
+            $(this).remove()
+          });
+        }, options.newOn);
+      };
+    })(jQuery);
+    $(function () {
+      $.fn.snow({
+        minSize: 5, /* 定義雪花最小尺寸 */
+        maxSize: 50,/* 定義雪花最大尺寸 */
+        newOn: 200  /* 定義密集程度，數字越小越密集 */
+      });
+    });
+  </script>
+  <script>
+    function info_me() {
+      var message = "我的小小資訊:\n🚹/🇹🇼/15y\n\n我擅長的:\n網頁後端/各大平台機器人開發\n\n我參與過的社群:\n> COSCUP 2023 會眾\n> SITCON 2024 場務組";
+      alert(message)
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="namecard">
+    <h2>Hans (亨)</h2>
+    <h3>學生&開發者</h3>
+    <div class="mail"><a style="color:#606060" href="mailto:hi@hans0805.me">hi@hans0805.me</a></div>
+    <div class="igid"><a style="color:#606060" href="https://www.instagram.com/08.hans_" target="_blank">08.hans_</a>
+    </div>
+    <div class="github"><a style="color:#606060" href="https://github.com/HansHans135" target="_blank">HansHans135</a>
+    </div>
+    <a href="https://linktr.ee/08.hans_" target="_blank">
+      <div class="qr"></div>
+    </a>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
+    <!--<div class="circle circle5"></div>-->
+    <div class="circle circle6"></div>
+
+  </div>
+
+  <div class="copy">Hans</div>
+  <!-- partial -->
+
+</body>
+
+</html>
