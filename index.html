@@ -1,95 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Tofu Chen</title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #000000;
+      color: #f9f9f9;
+    }
+   /* Fade-in animation */
+   @keyframes fadeInUp {
+     0% {
+       opacity: 0;
+       transform: translateY(20px);
+     }
+     100% {
+       opacity: 1;
+       transform: translateY(0);
+     }
+   }
+   .fade-in-up {
+     animation: fadeInUp 0.8s ease forwards;
+   }
+   /* Button pulse on hover */
+   .btn-pulse:hover {
+     animation: pulse 1.2s infinite;
+   }
+   @keyframes pulse {
+     0%, 100% {
+       transform: scale(1);
+       box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+     }
+     50% {
+       transform: scale(1.05);
+       box-shadow: 0 0 24px rgba(255, 255, 255, 1);
+     }
+   }
 
-<head>
-  <meta charset="UTF-8">
-  <title>Tofu</title>
-  <meta name="description" content="嗨嗨!!我是一位台灣的國中生.w.">
-  <meta property="og:title" content="Tofu-陳宥輔" />
-  <meta property="og:image" content="./avatar.gif" />
-  <meta property="og:description" content="陳宥輔Tofu Chen的小窩(?" />
-  <link rel="stylesheet" href="./style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="https://view.hans0805.me/script.js"
-    data-website-id="24f16021-e261-496d-9cca-37b70c80641a"></script>
+   ::-webkit-scrollbar {
+     width: 8px;
+   }
+   ::-webkit-scrollbar-track {
+     background: #1a1a1a;
+   }
+   ::-webkit-scrollbar-thumb {
+     background-color: #888888;
+     border-radius: 10px;
+     border: 2px solid #1a1a1a;
+   }
+   a {
+     color: #f9f9f9;
+     transition: color 0.3s ease;
+   }
+   a:hover {
+     color: #bbbbbb;
+   }
+   input, textarea {
+     background-color: #1a1a1a;
+     border-color: #444444;
+     color: #f9f9f9;
+   }
+   input::placeholder, textarea::placeholder {
+     color: #777777;
+   }
+   input:focus, textarea:focus {
+     outline: none;
+     border-color: #f9f9f9;
+     box-shadow: 0 0 6px #f9f9f9;
+     background-color: #222222;
+   }
+   button {
+     background-color: #222222;
+     color: #f9f9f9;
+     border: 2px solid #f9f9f9;
+     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+   }
+   button:hover {
+     background-color: #f9f9f9;
+     color: #000000;
+     box-shadow: 0 0 12px #f9f9f9;
+   }
+   section.bg-white {
+     background-color: #111111 !important;
+     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
+   }
+   img {
+     border: 4px solid #f9f9f9;
+   }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col">
+  <header class="bg-black shadow-lg fade-in-up">
+   <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+    <div class="text-3xl font-extrabold text-white tracking-widest drop-shadow-lg select-none">
+     Tofu Chen
+    </div>
+    <ul class="hidden md:flex space-x-10 text-white font-semibold tracking-wide">
+     <li>
+      <a href="#about">
+       關於我
+      </a>
+     </li>
+     <li>
+      <a href="#skills">
+       我的技能
+      </a>
+     </li>
+     <li>
+      <a href="#contact">
+       聯絡我
+      </a>
+     </li>
+    </ul>
+    <button aria-label="開啟選單" class="md:hidden text-white focus:outline-none" id="menu-btn">
+     <i class="fas fa-bars fa-lg drop-shadow-lg">
+     </i>
+    </button>
+   </nav>
+   <div class="hidden md:hidden bg-black shadow-lg" id="mobile-menu">
+    <ul class="flex flex-col space-y-4 px-6 py-6 text-white font-semibold tracking-wide">
+     <li>
+      <a href="#about">
+       關於我
+      </a>
+     </li>
+     <li>
+      <a href="#skills">
+       我的技能
+      </a>
+     </li>
+     <li>
+      <a href="#contact">
+       聯絡我
+      </a>
+     </li>
+    </ul>
+   </div>
+  </header>
+  <main class="flex-grow container mx-auto px-6 py-12 max-w-4xl space-y-20">
+   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="about" style="animation-delay: 0.2s;">
+    <h1 class="text-5xl font-extrabold mb-8 text-center drop-shadow-md">
+     你好，我是Tofu Chen
+    </h1>
+    <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-12">
+     <img alt="一位穿著白襯衫、微笑的亞洲男性，背景為淺灰色，專業頭像照片" class="rounded-3xl shadow-lg w-64 h-64 object-cover mb-8 md:mb-0 flex-shrink-0" height="256" src="https://storage.googleapis.com/a1aa/image/d70319f7-477b-41df-8ad4-22c9172b3a71.jpg" width="256"/>
+     <p class="text-gray-200 text-lg leading-relaxed max-w-xl">
+      嗨! 你好</br>我是一名中華民國台灣省的學生</br>我的生日是在12月1日（記得送禮物給我</br></br>團隊:海微數位工作室｜共同創辦人 、迪斯中學｜社群經營部門 、夜星網絡科技｜社群領導層
+     </p>
+    </div>
+   </section>
+   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="skills" style="animation-delay: 0.4s;">
+    <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-md">
+     我的技能
+    </h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 gap-12 text-gray-300">
+     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.5s;">
+      <i class="fab fa-html5 text-white text-6xl mb-5 drop-shadow-sm">
+      </i>
+      <span class="font-semibold text-xl">
+       HTML5
+      </span>
+     </li>
+     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.6s;">
+      <i class="fab fa-css3-alt text-white text-6xl mb-5 drop-shadow-sm">
+      </i>
+      <span class="font-semibold text-xl">
+       CSS3
+      </span>
+     </li>
+     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.7s;">
+      <i class="fab fa-python text-white text-6xl mb-5 drop-shadow-sm">
+      </i>
+      <span class="font-semibold text-xl items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up">
+       Python
+      </span>
+     </li>
+    </ul>
+   </section>
+   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="contact" style="animation-delay: 1.2s;">
+    <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-md">
+     聯絡我
+    </h2>
+    <p>
+        暫時尚未啟用，若有疑問請寫信tofu@haiweinet.com
+      </p>
+    <form class="max-w-full mx-0 space-y-8">
+     <div class="max-w-4xl">
+      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="name">
+       姓名
+      </label>
+      <input class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition" id="name" name="name" placeholder="請輸入您的姓名" required="" type="text"/>
+     </div>
+     <div class="max-w-4xl">
+      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="email">
+       電子郵件
+      </label>
+      <input class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition" id="email" name="email" placeholder="請輸入您的電子郵件" required="" type="email"/>
+     </div>
+     <div class="max-w-4xl">
+      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="message">
+       訊息
+      </label>
+      <textarea class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition resize-none" id="message" name="message" placeholder="請輸入您的訊息" required="" rows="5"></textarea>
+     </div>
+     <div class="max-w-4xl flex justify-end">
+      <button class="bg-black text-white font-extrabold py-3 px-10 rounded-3xl border-2 border-white hover:bg-white hover:text-black transition duration-300 shadow-lg drop-shadow-lg btn-pulse" type="submit">
+       送出
+      </button>
+     </div>
+    </form>
+   </section>
+  </main>
+  <footer class="bg-black py-8 mt-auto fade-in-up" style="animation-delay: 1.4s;">
+   <div class="container mx-auto px-6 text-center text-gray-400 text-sm font-semibold tracking-wide select-none drop-shadow-md">
+    ©2025 TofuChen 版權所有。
+   </div>
+  </footer>
+  <script>
+   const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript">
-    (function ($) {
-      $.fn.snow = function (options) {
-        var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
-          documentHeight = $(document).height(),
-          documentWidth = $(document).width(),
-          defaults = {
-            minSize: 10,
-            maxSize: 20,
-            newOn: 1000,
-            flakeColor: "#FFFFF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
-          },
-          options = $.extend({}, defaults, options);
-        var interval = setInterval(function () {
-          var startPositionLeft = Math.random() * documentWidth - 100,
-            startOpacity = 0.5 + Math.random(),
-            sizeFlake = options.minSize + Math.random() * options.maxSize,
-            endPositionTop = documentHeight - 200,
-            endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
-            durationFall = documentHeight * 10 + Math.random() * 5000;
-          $flake.clone().appendTo('body').css({
-            left: startPositionLeft,
-            opacity: startOpacity,
-            'font-size': sizeFlake,
-            color: options.flakeColor
-          }).animate({
-            top: endPositionTop,
-            left: endPositionLeft,
-            opacity: 0.2
-          }, durationFall, 'linear', function () {
-            $(this).remove()
-          });
-        }, options.newOn);
-      };
-    })(jQuery);
-    $(function () {
-      $.fn.snow({
-        minSize: 5, /* 定義雪花最小尺寸 */
-        maxSize: 50,/* 定義雪花最大尺寸 */
-        newOn: 200  /* 定義密集程度，數字越小越密集 */
-      });
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
   </script>
-  <script>
-    function info_me() {
-      var message = "我的小小資訊:\n🚹/🇹🇼/13y\n\n我擅長的:\n網頁後端/Discord機器人開發";
-      alert(message)
-    }
-  </script>
-
-</head>
-
-<body>
-  <div class="namecard">
-    <h2>Tofu(陳宥輔)</h2>
-    <h3>學生&開發者</h3>
-    <div class="mail"><a style="color:#606060" href="mailto:tofu@m.1001201.xyz">tofu@m.1001201.xyz</a></div>
-    <div class="igid"><a style="color:#606060" href="https://www.instagram.com/tofu.1201_tw" target="_blank">tofu.1201_tw</a>
-    </div>
-    <div class="github"><a style="color:#606060" href="https://github.com/yychen1201" target="_blank">YYChen1201</a>
-    </div>
-    <a href="" target="_blank">
-      <div class="qr"></div>
-    </a>
-    <div class="circle circle1"></div>
-    <div class="circle circle2"></div>
-    <div class="circle circle3"></div>
-    <div class="circle circle4"></div>
-    <!--<div class="circle circle5"></div>-->
-    <div class="circle circle6"></div>
-
-  </div>
-
-  <div class="copy">本網站基於開源專案 <a href="https://github.com/HansHans135/hans-is-dev" target="_blank">hans-is-dev</a> 修改與擴展，由 YYChen1201 進行後續維護。</div>
-  <!-- partial -->
-
-</body>
-
+ </body>
 </html>
