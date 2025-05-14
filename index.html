@@ -1,233 +1,294 @@
-<html lang="zh-Hant">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>Tofu Chen</title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background: #000000;
-      color: #f9f9f9;
-    }
-   /* Fade-in animation */
-   @keyframes fadeInUp {
-     0% {
-       opacity: 0;
-       transform: translateY(20px);
-     }
-     100% {
-       opacity: 1;
-       transform: translateY(0);
-     }
-   }
-   .fade-in-up {
-     animation: fadeInUp 0.8s ease forwards;
-   }
-   /* Button pulse on hover */
-   .btn-pulse:hover {
-     animation: pulse 1.2s infinite;
-   }
-   @keyframes pulse {
-     0%, 100% {
-       transform: scale(1);
-       box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-     }
-     50% {
-       transform: scale(1.05);
-       box-shadow: 0 0 24px rgba(255, 255, 255, 1);
-     }
-   }
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tofu Chen - 個人網站</title>
+    <style>
+        /* 基本重置與全域設定 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            line-height: 1.6;
+            background-color: #f4f7f6; /* 淡雅的背景色 */
+            color: #333; /* 主要文字顏色 */
+            scroll-behavior: smooth; /* 頁內連結平滑滾動 */
+        }
 
-   ::-webkit-scrollbar {
-     width: 8px;
-   }
-   ::-webkit-scrollbar-track {
-     background: #1a1a1a;
-   }
-   ::-webkit-scrollbar-thumb {
-     background-color: #888888;
-     border-radius: 10px;
-     border: 2px solid #1a1a1a;
-   }
-   a {
-     color: #f9f9f9;
-     transition: color 0.3s ease;
-   }
-   a:hover {
-     color: #bbbbbb;
-   }
-   input, textarea {
-     background-color: #1a1a1a;
-     border-color: #444444;
-     color: #f9f9f9;
-   }
-   input::placeholder, textarea::placeholder {
-     color: #777777;
-   }
-   input:focus, textarea:focus {
-     outline: none;
-     border-color: #f9f9f9;
-     box-shadow: 0 0 6px #f9f9f9;
-     background-color: #222222;
-   }
-   button {
-     background-color: #222222;
-     color: #f9f9f9;
-     border: 2px solid #f9f9f9;
-     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-   }
-   button:hover {
-     background-color: #f9f9f9;
-     color: #000000;
-     box-shadow: 0 0 12px #f9f9f9;
-   }
-   section.bg-white {
-     background-color: #111111 !important;
-     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
-   }
-   img {
-     border: 4px solid #f9f9f9;
-   }
-  </style>
- </head>
- <body class="min-h-screen flex flex-col">
-  <header class="bg-black shadow-lg fade-in-up">
-   <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
-    <div class="text-3xl font-extrabold text-white tracking-widest drop-shadow-lg select-none">
-     Tofu Chen
-    </div>
-    <ul class="hidden md:flex space-x-10 text-white font-semibold tracking-wide">
-     <li>
-      <a href="#about">
-       關於我
-      </a>
-     </li>
-     <li>
-      <a href="#skills">
-       我的技能
-      </a>
-     </li>
-     <li>
-      <a href="#contact">
-       聯絡我
-      </a>
-     </li>
-    </ul>
-    <button aria-label="開啟選單" class="md:hidden text-white focus:outline-none" id="menu-btn">
-     <i class="fas fa-bars fa-lg drop-shadow-lg">
-     </i>
-    </button>
-   </nav>
-   <div class="hidden md:hidden bg-black shadow-lg" id="mobile-menu">
-    <ul class="flex flex-col space-y-4 px-6 py-6 text-white font-semibold tracking-wide">
-     <li>
-      <a href="#about">
-       關於我
-      </a>
-     </li>
-     <li>
-      <a href="#skills">
-       我的技能
-      </a>
-     </li>
-     <li>
-      <a href="#contact">
-       聯絡我
-      </a>
-     </li>
-    </ul>
-   </div>
-  </header>
-  <main class="flex-grow container mx-auto px-6 py-12 max-w-4xl space-y-20">
-   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="about" style="animation-delay: 0.2s;">
-    <h1 class="text-5xl font-extrabold mb-8 text-center drop-shadow-md">
-     你好，我是Tofu Chen
-    </h1>
-    <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-12">
-     <img alt="一位穿著白襯衫、微笑的亞洲男性，背景為淺灰色，專業頭像照片" class="rounded-3xl shadow-lg w-64 h-64 object-cover mb-8 md:mb-0 flex-shrink-0" height="256" src="https://storage.googleapis.com/a1aa/image/d70319f7-477b-41df-8ad4-22c9172b3a71.jpg" width="256"/>
-     <p class="text-gray-200 text-lg leading-relaxed max-w-xl">
-      嗨! 你好</br>我是一名台灣的國中生</br>我的生日是在12月1日（記得送禮物給我</br></br>團隊:海微數位工作室｜共同創辦人 、迪斯中學｜社群經營部門 、夜星網絡科技｜社群領導層
-     </p>
-    </div>
-   </section>
-   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="skills" style="animation-delay: 0.4s;">
-    <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-md">
-     我的技能
-    </h2>
-    <ul class="grid grid-cols-2 sm:grid-cols-3 gap-12 text-gray-300">
-     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.5s;">
-      <i class="fab fa-html5 text-white text-6xl mb-5 drop-shadow-sm">
-      </i>
-      <span class="font-semibold text-xl">
-       HTML5
-      </span>
-     </li>
-     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.6s;">
-      <i class="fab fa-css3-alt text-white text-6xl mb-5 drop-shadow-sm">
-      </i>
-      <span class="font-semibold text-xl">
-       CSS3
-      </span>
-     </li>
-     <li class="flex flex-col items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up" style="animation-delay: 0.7s;">
-      <i class="fab fa-python text-white text-6xl mb-5 drop-shadow-sm">
-      </i>
-      <span class="font-semibold text-xl items-center bg-black rounded-2xl shadow-md p-8 hover:scale-105 transform transition duration-300 cursor-default fade-in-up">
-       Python
-      </span>
-     </li>
-    </ul>
-   </section>
-   <section class="bg-white rounded-3xl shadow-2xl p-10 fade-in-up" id="contact" style="animation-delay: 1.2s;">
-    <h2 class="text-4xl font-bold mb-12 text-center drop-shadow-md">
-     聯絡我
-    </h2>
-    <p>
-        暫時尚未啟用，若有疑問請寫信tofu@haiweinet.com
-      </p>
-    <form class="max-w-full mx-0 space-y-8">
-     <div class="max-w-4xl">
-      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="name">
-       姓名
-      </label>
-      <input class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition" id="name" name="name" placeholder="請輸入您的姓名" required="" type="text"/>
-     </div>
-     <div class="max-w-4xl">
-      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="email">
-       電子郵件
-      </label>
-      <input class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition" id="email" name="email" placeholder="請輸入您的電子郵件" required="" type="email"/>
-     </div>
-     <div class="max-w-4xl">
-      <label class="block text-gray-200 mb-3 font-semibold text-lg" for="message">
-       訊息
-      </label>
-      <textarea class="w-full border border-gray-600 bg-black rounded-xl px-8 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white focus:border-white transition resize-none" id="message" name="message" placeholder="請輸入您的訊息" required="" rows="5"></textarea>
-     </div>
-     <div class="max-w-4xl flex justify-end">
-      <button class="bg-black text-white font-extrabold py-3 px-10 rounded-3xl border-2 border-white hover:bg-white hover:text-black transition duration-300 shadow-lg drop-shadow-lg btn-pulse" type="submit">
-       送出
-      </button>
-     </div>
-    </form>
-   </section>
-  </main>
-  <footer class="bg-black py-8 mt-auto fade-in-up" style="animation-delay: 1.4s;">
-   <div class="container mx-auto px-6 text-center text-gray-400 text-sm font-semibold tracking-wide select-none drop-shadow-md">
-    ©2025 Tofu Chen 版權所有。
-   </div>
-  </footer>
-  <script>
-   const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+        .container {
+            max-width: 900px; /* 內容最大寬度 */
+            margin: 0 auto; /* 置中 */
+            padding: 20px;
+        }
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
- </body>
+        /* 頁首 (Hero Section) */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 漸層背景 */
+            color: #fff; /* 頁首文字白色 */
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px; /* 左下圓角 */
+            border-bottom-right-radius: 20px; /* 右下圓角 */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em; /* 標題字體大小 */
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* 導覽列 (可選，此處簡化) */
+        nav {
+            background: #fff;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky; /* 導覽列吸頂 */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #764ba2; /* 滑鼠懸停顏色 */
+        }
+
+
+        /* 內容區塊通用樣式 */
+        section {
+            padding: 40px 20px;
+            margin-top: 30px;
+            background-color: #fff; /* 區塊背景白色 */
+            border-radius: 12px; /* 圓角 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 細緻陰影 */
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2em; /* 區塊標題字體大小 */
+            color: #4A5568; /* 區塊標題顏色 */
+            margin-bottom: 30px;
+            position: relative;
+        }
+        /* 區塊標題底線裝飾 */
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #764ba2; /* 主題色 */
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+
+        /* 關於我 */
+        #about p {
+            font-size: 1.1em;
+            text-align: justify; /* 文字左右對齊 */
+            color: #555;
+        }
+
+        /* 我的角色與經歷 */
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f9f9f9; /* 單項經歷背景色 */
+            border-left: 5px solid #667eea; /* 左側裝飾線 */
+            border-radius: 8px;
+        }
+
+        .experience-item h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.4em;
+        }
+        .experience-item .role {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .experience-item p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 我的技能 */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex; /* 使用 flexbox 排列 */
+            flex-wrap: wrap; /* 換行 */
+            gap: 15px; /* 技能標籤間距 */
+            justify-content: center;
+        }
+
+        .skills-list li {
+            background-color: #e9ecef; /* 技能標籤背景色 */
+            color: #495057; /* 技能標籤文字顏色 */
+            padding: 10px 20px;
+            border-radius: 20px; /* 圓角標籤 */
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .skills-list li:hover {
+            transform: translateY(-3px);
+            background-color: #d0d9e2;
+        }
+
+
+        /* 聯絡我 */
+        #contact p {
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        #contact a {
+            color: #764ba2; /* 連結顏色 */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-placeholder {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3cd; /* 提示背景色 */
+            color: #856404; /* 提示文字顏色 */
+            border: 1px solid #ffeeba; /* 提示邊框 */
+            border-radius: 8px;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background-color: #333; /* 頁尾深色背景 */
+            color: #ccc; /* 頁尾淺色文字 */
+            font-size: 0.9em;
+        }
+
+        /* 響應式設計：小螢幕調整 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header .subtitle {
+                font-size: 1em;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+            section h2 {
+                font-size: 1.8em;
+            }
+            .skills-list {
+                justify-content: space-around; /* 小螢幕技能標籤分散排列 */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>你好，我是 Tofu Chen！</h1>
+            <p class="subtitle">一位來自台灣，對科技充滿熱情的國中生、開發者，以及海微數位工作室的共同創辦人。</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#about">關於我</a>
+        <a href="#experience">我的經歷</a>
+        <a href="#skills">我的技能</a>
+        <a href="#contact">聯絡我</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>關於我</h2>
+            <p>我是一位就讀於國中的台灣學生，Tofu Chen。從小，我就對電腦和網路世界充滿好奇，特別著迷於網站是如何被創造與運作的。這份熱情引導我一頭栽進程式設計的領域，並且發現了其中的無限樂趣。透過不斷學習和實踐，我希望能創造出更多有趣且有價值的數位作品。</p>
+            <p>對了，我的生日是國曆12月1日，如果你剛好記得，我會非常開心的！;)</p>
+        </section>
+
+        <section id="experience">
+            <h2>我的角色與經歷</h2>
+            <div class="experience-item">
+                <h3>海微數位工作室</h3>
+                <span class="role">共同創辦人</span>
+                <p><em>海微數位專注數位轉型服務，結合網站開發、電子商務與 AI 技術，打造企業智能化新時代。立即了解數位轉型方案！</em></p>
+            </div>
+            <div class="experience-item">
+                <h3>迪斯中學</h3>
+                <span class="role">社群經營部門</span>
+                <p><em>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</em></p>
+            </div>
+            <div class="experience-item">
+                <h3>異界碎片</h3>
+                <span class="role">社群領導層</span>
+                <p><em>踏入「異界碎片」，我們不追夢，而是實現夢。這裡是異世尋夢者的聚集地，一場挑戰未知的冒險，一場感受異界之美的奇妙旅程。</em></p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>我的技能</h2>
+            <ul class="skills-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Python</li>
+                </ul>
+        </section>
+
+        <section id="contact">
+            <h2>聯絡我</h2>
+            <p>若有任何疑問、合作提案，或只是想聊聊，都歡迎透過 Email 與我聯繫：</p>
+            <p><a href="mailto:tofu@haiweinet.com">tofu@haiweinet.com</a></p>
+            <div class="contact-form-placeholder">
+                <p>小提示：本網站的聯絡表單功能正在努力建置中，敬請期待未來的更新！</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Tofu Chen - Keep Creating & Exploring!</p>
+            <p>Code by Tofu1201 (今天是 <span id="currentDate"></span>)</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-TW', options);
+    </script>
+
+</body>
 </html>
