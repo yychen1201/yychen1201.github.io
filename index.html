@@ -29,7 +29,7 @@
         }
 
         .container { /* 全域容器：用於限制內容最大寬度並置中 */
-            max-width: 1040px; /* 【已修改】從 900px 加寬到 1040px */
+            max-width: 1040px; 
             margin: 0 auto;
             padding: 0 20px; /* 容器左右的通用留白 */
         }
@@ -38,8 +38,7 @@
         header.hero-showcase {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
-            /* padding: 60px 20px 60px 150px; 原 padding */
-            padding: 60px 0 60px 150px; /* 【已修改】右側 padding 由內層 .container 控制 */
+            padding: 60px 0 60px 150px; 
             text-align: center;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
@@ -47,18 +46,16 @@
             min-height: 300px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Hero 文字內容置中 */
+            justify-content: center; 
         }
-        /* Hero 內實際文字內容的容器，它會使用全域 .container 的設定 */
         header.hero-showcase .hero-content-wrapper {
-             /* 使用 .container class，所以 max-width 和 padding 已定義 */
         }
 
 
         /* 圖示選單容器 (icon + text) */
         nav.hero-icon-menu {
             position: absolute;
-            left: 25px; /* 【可微調】選單與 Hero 左邊緣的距離 */
+            left: 25px; 
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -108,26 +105,23 @@
             opacity: 0.9;
         }
 
-        /* 主要內容區塊 (包裹所有 section) */
         main.main-content-area {
-            /* 這個 wrapper 不再需要 .container class 來限制寬度，由 section 自己處理 */
         }
 
-        /* 內容區塊通用樣式 */
         section {
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             margin-top: 30px;
-            padding: 40px 30px;   /* 【已修改】Section 內部上下左右的留白 */
-            max-width: 1040px;    /* 【已修改】Section 本身的最大寬度，配合 .container */
-            margin-left: auto;    /* 【新增】讓 Section 區塊置中 */
-            margin-right: auto;   /* 【新增】讓 Section 區塊置中 */
+            padding: 40px 30px;   
+            max-width: 1040px;    
+            margin-left: auto;    
+            margin-right: auto;   
         }
 
         section h2 { 
             text-align: center; font-size: 2em; color: #4A5568; 
-            margin-top: 0; /* 確保標題與 section padding 之間沒有額外 margin */
+            margin-top: 0; 
             margin-bottom: 30px; position: relative; 
         }
         section h2::after { 
@@ -149,31 +143,28 @@
         
         #contact p { text-align: center; font-size: 1.1em; margin-bottom: 1em; }
         #contact p:last-child { margin-bottom: 0; }
-        #contact .email-link { color: #764ba2; text-decoration: none; font-weight: bold; }
+        #contact .email-link { color: #764ba2; text-decoration: none; font-weight: bold; } 
         #contact .email-link:hover { text-decoration: underline; }
         .contact-form-placeholder { text-align: center; margin-top: 20px; padding: 15px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; }
         
         footer { 
             text-align: center; 
-            padding-top: 30px; /* 【已修改】只給上下 padding */
+            padding-top: 30px; 
             padding-bottom: 30px;
             margin-top: 40px; 
             background-color: #333; 
             color: #ccc; 
             font-size: 0.9em; 
         }
-        /* footer 內部的 .container 會負責左右 padding 和 max-width */
-
 
         /* === 響應式設計：小螢幕調整 === */
         @media (max-width: 768px) {
-            .container { /* 小螢幕時，容器左右留白可以少一點 */
+            .container { 
                 padding: 0 15px;
             }
             header.hero-showcase {
-                padding: 20px 15px 40px 15px; /* 配合 .container 的 padding */
+                padding: 20px 15px 40px 15px; 
             }
-            /* Icon menu 的響應式調整 */
             nav.hero-icon-menu {
                 position: static; 
                 transform: none;
@@ -199,9 +190,8 @@
                 font-size: 0.8em;
             }
 
-            /* Section 的 padding 在小螢幕時也可以調整 */
             section {
-                padding: 30px 20px; /* 上下左右都小一點 */
+                padding: 30px 20px; 
                 margin-top: 25px;
             }
 
@@ -254,8 +244,7 @@
             </div>
             <div class="experience-item">
                 <h3>迪斯中學</h3>
-                <span class="role">社群經營部門｜輔導部門｜技術部門
-                </span>
+                <span class="role">社群經營部門</span>
                 <p>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</p>
             </div>
             <div class="experience-item">
@@ -282,7 +271,9 @@
                 <p>小提示：本網站的聯絡表單功能正在努力建置中，敬請期待未來的更新！</p>
             </div>
         </section>
-    </main> <footer>
+    </main>
+
+    <footer>
         <div class="container">
             <p>&copy; <span id="currentYear"></span> Tofu Chen - Keep Creating & Exploring!</p>
             <p>Code by Tofu1201 (今天是 <span id="currentDate"></span>)</p>
