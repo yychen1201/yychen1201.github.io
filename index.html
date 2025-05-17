@@ -13,6 +13,9 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Tofu Chen 個人網站">
     <meta property="og:locale" content="zh_TW">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* 基本重置與全域設定 */
         body, html {
@@ -20,231 +23,226 @@
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             line-height: 1.6;
-            background-color: #f4f7f6; /* 淡雅的背景色 */
-            color: #333; /* 主要文字顏色 */
-            scroll-behavior: smooth; /* 頁內連結平滑滾動 */
+            background-color: #f4f7f6;
+            color: #333;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 900px; /* 內容最大寬度 */
-            margin: 0 auto; /* 置中 */
-            padding: 20px;
+        .container { /* 全域容器：用於限制內容最大寬度並置中 */
+            max-width: 1040px; /* 【已修改】從 900px 加寬到 1040px */
+            margin: 0 auto;
+            padding: 0 20px; /* 容器左右的通用留白 */
         }
 
-        /* 頁首 (Hero Section) */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* 漸層背景 */
-            color: #fff; /* 頁首文字白色 */
-            padding: 60px 20px;
+        /* Hero Section 調整 */
+        header.hero-showcase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            /* padding: 60px 20px 60px 150px; 原 padding */
+            padding: 60px 0 60px 150px; /* 【已修改】右側 padding 由內層 .container 控制 */
             text-align: center;
-            border-bottom-left-radius: 20px; /* 左下圓角 */
-            border-bottom-right-radius: 20px; /* 右下圓角 */
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Hero 文字內容置中 */
+        }
+        /* Hero 內實際文字內容的容器，它會使用全域 .container 的設定 */
+        header.hero-showcase .hero-content-wrapper {
+             /* 使用 .container class，所以 max-width 和 padding 已定義 */
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.8em; /* 標題字體大小 */
+
+        /* 圖示選單容器 (icon + text) */
+        nav.hero-icon-menu {
+            position: absolute;
+            left: 25px; /* 【可微調】選單與 Hero 左邊緣的距離 */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            z-index: 10;
+        }
+
+        nav.hero-icon-menu a {
+            color: #fff; 
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            min-width: 100px; 
+        }
+
+        nav.hero-icon-menu a .icon-area {
+            font-size: 1.4em; 
+            line-height: 1; 
+            flex-shrink: 0; 
+            width: 24px; 
+            text-align: center; 
+        }
+
+        nav.hero-icon-menu a .text-label {
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap; 
+        }
+
+        nav.hero-icon-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.15); 
+        }
+        
+        header.hero-showcase h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.8em;
             font-weight: 700;
         }
 
-        header .subtitle {
+        header.hero-showcase .subtitle {
             font-size: 1.2em;
-            margin-top: 10px;
             opacity: 0.9;
         }
 
-        /* 導覽列 (可選，此處簡化) */
-        nav {
-            background: #fff;
-            padding: 10px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky; /* 導覽列吸頂 */
-            top: 0;
-            z-index: 1000;
+        /* 主要內容區塊 (包裹所有 section) */
+        main.main-content-area {
+            /* 這個 wrapper 不再需要 .container class 來限制寬度，由 section 自己處理 */
         }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #764ba2; /* 滑鼠懸停顏色 */
-        }
-
 
         /* 內容區塊通用樣式 */
         section {
-            padding: 40px 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             margin-top: 30px;
-            background-color: #fff; /* 區塊背景白色 */
-            border-radius: 12px; /* 圓角 */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 細緻陰影 */
+            padding: 40px 30px;   /* 【已修改】Section 內部上下左右的留白 */
+            max-width: 1040px;    /* 【已修改】Section 本身的最大寬度，配合 .container */
+            margin-left: auto;    /* 【新增】讓 Section 區塊置中 */
+            margin-right: auto;   /* 【新增】讓 Section 區塊置中 */
         }
 
-        section h2 {
-            text-align: center;
-            font-size: 2em; /* 區塊標題字體大小 */
-            color: #4A5568; /* 區塊標題顏色 */
-            margin-bottom: 30px;
-            position: relative;
+        section h2 { 
+            text-align: center; font-size: 2em; color: #4A5568; 
+            margin-top: 0; /* 確保標題與 section padding 之間沒有額外 margin */
+            margin-bottom: 30px; position: relative; 
         }
-        /* 區塊標題底線裝飾 */
-        section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: #764ba2; /* 主題色 */
-            margin: 8px auto 0;
-            border-radius: 2px;
+        section h2::after { 
+            content: ''; display: block; width: 60px; height: 3px; 
+            background-color: #764ba2; margin: 8px auto 0; border-radius: 2px; 
         }
+        
+        #about p { font-size: 1.1em; text-align: justify; color: #555; margin-bottom: 1em; }
+        #about p:last-child { margin-bottom: 0; }
+
+        .experience-item { margin-bottom: 25px; padding: 20px; background-color: #f9f9f9; border-left: 5px solid #667eea; border-radius: 8px; }
+        .experience-item h3 { margin-top: 0; margin-bottom: 5px; color: #333; font-size: 1.4em; }
+        .experience-item .role { font-style: italic; color: #777; margin-bottom: 10px; display: block; }
+        .experience-item p { font-size: 1em; color: #666; margin-bottom: 0; }
+        
+        .skills-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .skills-list li { background-color: #e9ecef; color: #495057; padding: 10px 20px; border-radius: 20px; font-size: 1em; font-weight: 500; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s ease, background-color 0.2s ease; }
+        .skills-list li:hover { transform: translateY(-3px); background-color: #d0d9e2; }
+        
+        #contact p { text-align: center; font-size: 1.1em; margin-bottom: 1em; }
+        #contact p:last-child { margin-bottom: 0; }
+        #contact .email-link { color: #764ba2; text-decoration: none; font-weight: bold; }
+        #contact .email-link:hover { text-decoration: underline; }
+        .contact-form-placeholder { text-align: center; margin-top: 20px; padding: 15px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; }
+        
+        footer { 
+            text-align: center; 
+            padding-top: 30px; /* 【已修改】只給上下 padding */
+            padding-bottom: 30px;
+            margin-top: 40px; 
+            background-color: #333; 
+            color: #ccc; 
+            font-size: 0.9em; 
+        }
+        /* footer 內部的 .container 會負責左右 padding 和 max-width */
 
 
-        /* 關於我 */
-        #about p {
-            font-size: 1.1em;
-            text-align: justify; /* 文字左右對齊 */
-            color: #555;
-        }
-
-        /* 我的角色與經歷 */
-        .experience-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background-color: #f9f9f9; /* 單項經歷背景色 */
-            border-left: 5px solid #667eea; /* 左側裝飾線 */
-            border-radius: 8px;
-        }
-
-        .experience-item h3 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            color: #333;
-            font-size: 1.4em;
-        }
-        .experience-item .role {
-            font-style: italic;
-            color: #777;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .experience-item p {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 0;
-        }
-
-        /* 我的技能 */
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            display: flex; /* 使用 flexbox 排列 */
-            flex-wrap: wrap; /* 換行 */
-            gap: 15px; /* 技能標籤間距 */
-            justify-content: center;
-        }
-
-        .skills-list li {
-            background-color: #e9ecef; /* 技能標籤背景色 */
-            color: #495057; /* 技能標籤文字顏色 */
-            padding: 10px 20px;
-            border-radius: 20px; /* 圓角標籤 */
-            font-size: 1em;
-            font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-        .skills-list li:hover {
-            transform: translateY(-3px);
-            background-color: #d0d9e2;
-        }
-
-
-        /* 聯絡我 */
-        #contact p {
-            text-align: center;
-            font-size: 1.1em;
-        }
-
-        #contact a {
-            color: #764ba2; /* 連結顏色 */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #contact a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form-placeholder {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff3cd; /* 提示背景色 */
-            color: #856404; /* 提示文字顏色 */
-            border: 1px solid #ffeeba; /* 提示邊框 */
-            border-radius: 8px;
-        }
-
-        /* 頁尾 */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            background-color: #333; /* 頁尾深色背景 */
-            color: #ccc; /* 頁尾淺色文字 */
-            font-size: 0.9em;
-        }
-
-        /* 響應式設計：小螢幕調整 */
+        /* === 響應式設計：小螢幕調整 === */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
+            .container { /* 小螢幕時，容器左右留白可以少一點 */
+                padding: 0 15px;
             }
-            header .subtitle {
-                font-size: 1em;
+            header.hero-showcase {
+                padding: 20px 15px 40px 15px; /* 配合 .container 的 padding */
             }
-            nav a {
-                margin: 0 10px;
-                font-size: 0.9em;
+            /* Icon menu 的響應式調整 */
+            nav.hero-icon-menu {
+                position: static; 
+                transform: none;
+                flex-direction: row; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+                width: 100%;
+                padding: 0 0 25px 0; 
+                gap: 8px; 
+                order: -1; 
             }
-            section h2 {
-                font-size: 1.8em;
+            nav.hero-icon-menu a {
+                font-size: 0.9em; 
+                padding: 8px 10px;
+                min-width: auto; 
+                gap: 6px; 
             }
-            .skills-list {
-                justify-content: space-around; /* 小螢幕技能標籤分散排列 */
+            nav.hero-icon-menu a .icon-area {
+                font-size: 1.2em; 
+                width: 20px;
             }
-        }
+            nav.hero-icon-menu a .text-label {
+                font-size: 0.8em;
+            }
 
+            /* Section 的 padding 在小螢幕時也可以調整 */
+            section {
+                padding: 30px 20px; /* 上下左右都小一點 */
+                margin-top: 25px;
+            }
+
+            header.hero-showcase h1 { font-size: 2em; } 
+            header.hero-showcase .subtitle { font-size: 1em; }
+            section h2 { font-size: 1.8em; }
+            .skills-list { justify-content: space-around; }
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container">
+    <header class="hero-showcase">
+        <nav class="hero-icon-menu">
+            <a href="#about" title="關於我">
+                <span class="icon-area"><i class="fas fa-user"></i></span>
+                <span class="text-label">關於</span>
+            </a>
+            <a href="#experience" title="我的經歷">
+                <span class="icon-area"><i class="fas fa-briefcase"></i></span>
+                <span class="text-label">經歷</span>
+            </a>
+            <a href="#skills" title="我的技能">
+                <span class="icon-area"><i class="fas fa-laptop-code"></i></span>
+                <span class="text-label">技能</span>
+            </a>
+            <a href="#contact" title="聯絡我">
+                <span class="icon-area"><i class="fas fa-envelope"></i></span>
+                <span class="text-label">聯絡</span>
+            </a>
+        </nav>
+        <div class="container hero-content-wrapper">
             <h1>你好，我是 Tofu Chen！</h1>
             <p class="subtitle">一位來自台灣，對科技充滿熱情的國中生、開發者，以及海微數位工作室的共同創辦人。</p>
         </div>
     </header>
 
-    <nav>
-        <a href="#about">關於我</a>
-        <a href="#experience">我的經歷</a>
-        <a href="#skills">我的技能</a>
-        <a href="#contact">聯絡我</a>
-    </nav>
-
-    <div class="container">
+    <main class="main-content-area">
         <section id="about">
             <h2>關於我</h2>
             <p>我是一位就讀於國中的台灣學生，Tofu Chen。從小，我就對電腦和網路世界充滿好奇，特別著迷於網站是如何被創造與運作的。這份熱情引導我一頭栽進程式設計的領域，並且發現了其中的無限樂趣。透過不斷學習和實踐，我希望能創造出更多有趣且有價值的數位作品。</p>
-            <p>對了，我的生日是國曆12月1日，如果你剛好記得，我會非常開心的！：)</p>
+            <p>對了，我的生日是國曆12月1日，如果你剛好記得，我會非常開心的！;)</p>
         </section>
 
         <section id="experience">
@@ -252,17 +250,18 @@
             <div class="experience-item">
                 <h3>海微數位工作室</h3>
                 <span class="role">共同創辦人</span>
-                <p><em>海微數位專注數位轉型服務，結合網站開發、電子商務與 AI 技術，打造企業智能化新時代。立即了解數位轉型方案！</em></p>
+                <p>海微數位專注數位轉型服務，結合網站開發、電子商務與 AI 技術，打造企業智能化新時代。立即了解數位轉型方案！</p>
             </div>
             <div class="experience-item">
                 <h3>迪斯中學</h3>
-                <span class="role">社群經營部門．輔導部門．技術部門</span>
-                <p><em>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</em></p>
+                <span class="role">社群經營部門｜輔導部門｜技術部門
+                </span>
+                <p>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</p>
             </div>
             <div class="experience-item">
                 <h3>異界碎片</h3>
                 <span class="role">社群領導層</span>
-                <p><em>踏入「異界碎片」，我們不追夢，而是實現夢。這裡是異世尋夢者的聚集地，一場挑戰未知的冒險，一場感受異界之美的奇妙旅程。</em></p>
+                <p>踏入「異界碎片」，我們不追夢，而是實現夢。這裡是異世尋夢者的聚集地，一場挑戰未知的冒險，一場感受異界之美的奇妙旅程。</p>
             </div>
         </section>
 
@@ -272,32 +271,31 @@
                 <li>HTML5</li>
                 <li>CSS3</li>
                 <li>Python</li>
-                </ul>
+            </ul>
         </section>
 
         <section id="contact">
             <h2>聯絡我</h2>
             <p>若有任何疑問、合作提案，或只是想聊聊，都歡迎透過 Email 與我聯繫：</p>
-            <p><a href="mailto:tofu@haiweinet.com">tofu@haiweinet.com</a></p>
+            <p><a href="/cdn-cgi/l/email-protection#2652494053664e474f51434f4843520845494b" class="email-link"><span class="__cf_email__" data-cfemail="42362d2437022a232b35272b2c27366c212d2f">[email&#160;protected]</span></a></p>
             <div class="contact-form-placeholder">
                 <p>小提示：本網站的聯絡表單功能正在努力建置中，敬請期待未來的更新！</p>
             </div>
         </section>
-    </div>
-
-    <footer>
+    </main> <footer>
         <div class="container">
             <p>&copy; <span id="currentYear"></span> Tofu Chen - Keep Creating & Exploring!</p>
             <p>Code by Tofu1201 (今天是 <span id="currentDate"></span>)</p>
         </div>
     </footer>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-TW', options);
     </script>
-
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"93f9c8aaafc84a48","version":"2025.4.0-1-g37f21b1","r":1,"token":"f9a127da68ba4ef39742f29c4e17aa45","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
 </html>
