@@ -28,10 +28,10 @@
             scroll-behavior: smooth;
         }
 
-        .container { /* 全域容器：用於限制內容最大寬度並置中 */
+        .container { 
             max-width: 1040px; 
             margin: 0 auto;
-            padding: 0 20px; /* 容器左右的通用留白 */
+            padding: 0 20px; 
         }
 
         /* Hero Section 調整 */
@@ -51,8 +51,7 @@
         header.hero-showcase .hero-content-wrapper {
         }
 
-
-        /* 圖示選單容器 (icon + text) */
+        /* 圖示選單容器 (電腦版：左側) */
         nav.hero-icon-menu {
             position: absolute;
             left: 25px; 
@@ -106,6 +105,7 @@
         }
 
         main.main-content-area {
+             /* 【新增】確保主要內容區域在有固定頂部選單時，不會被遮擋 (手機版) */
         }
 
         section {
@@ -159,35 +159,61 @@
 
         /* === 響應式設計：小螢幕調整 === */
         @media (max-width: 768px) {
+            body { /* 【新增】為 body 增加上邊距，避免內容被固定選單遮擋 */
+                padding-top: 56px; /* 這個值約等於下面固定選單的高度，您可以微調 */
+            }
+
             .container { 
                 padding: 0 15px;
             }
-            header.hero-showcase {
-                padding: 20px 15px 40px 15px; 
-            }
+
+            /* 手機版：固定在頂部的選單 */
             nav.hero-icon-menu {
-                position: static; 
-                transform: none;
-                flex-direction: row; 
-                justify-content: center; 
-                flex-wrap: wrap; 
-                width: 100%;
-                padding: 0 0 25px 0; 
-                gap: 8px; 
-                order: -1; 
+                position: fixed; /* 【已修改】固定定位 */
+                top: 0;
+                left: 0;
+                width: 100%;    /* 【已修改】佔滿寬度 */
+                background-color: #ffffff; /* 【新增】設定背景色 (例如白色) */
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 【新增】加上陰影 */
+                z-index: 1001;  /* 【新增】確保在最上層 */
+
+                transform: none; /* 原本是 translateY(-50%)，固定定位後不再需要 */
+                flex-direction: row; /* 水平排列 */
+                justify-content: space-around; /* 圖示均勻分佈 */
+                align-items: center; /* 垂直居中項目 */
+                padding: 8px 10px; /* 選單本身的上下左右留白 */
+                gap: 5px; 
+                /* order: -1; /* 固定定位後，不再需要 order */
             }
+
             nav.hero-icon-menu a {
-                font-size: 0.9em; 
-                padding: 8px 10px;
+                color: #333; /* 【已修改】在白色背景上，圖示和文字改為深色 */
+                font-size: 0.8em; 
+                padding: 6px 8px;
                 min-width: auto; 
-                gap: 6px; 
+                gap: 4px; 
+                border-radius: 6px; /* 可選：為每個連結加點小圓角 */
             }
+            nav.hero-icon-menu a:hover {
+                background-color: #f0f0f0; /* 【已修改】淺灰色背景 */
+                color: #764ba2; /* 主題色 */
+            }
+
             nav.hero-icon-menu a .icon-area {
-                font-size: 1.2em; 
-                width: 20px;
+                font-size: 1.3em; 
+                /* width: 20px; */ /* Font Awesome 會自動調整 */
             }
+
             nav.hero-icon-menu a .text-label {
-                font-size: 0.8em;
+                font-size: 0.75em;
+                /* display: none; */ /* 如果空間非常小，可以考慮隱藏文字，但目前保留 */
+            }
+            
+            /* Hero Section 在手機上的調整 */
+            header.hero-showcase {
+                padding: 40px 15px 40px 15px; /* 上下 padding，左右由 .container 控制 */
+                /* margin-top: 56px; */ /* 【移除】改由 body 的 padding-top 控制與選單的間距 */
+                /* position: relative; 仍然保持，因為電腦版選單依賴它 */
             }
 
             section {
