@@ -9,7 +9,9 @@
     <meta property="og:title" content="Tofu Chen - 年輕的科技探索者與開發者">
     <meta property="og:description" content="你好！我是Tofu Chen，一位來自台灣的國中生，熱愛科技、網站開發，同時也是海微數位工作室的共同創辦人。來認識我更多！">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.1001201.xyz"> <meta property="og:image" content="https://www.example.com/images/tofu-og-image.jpg"> <meta property="og:image:width" content="1200">
+    <meta property="og:url" content="https://www.1001201.xyz">
+    <meta property="og:image" content="https://www.example.com/images/tofu-og-image.jpg">
+    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Tofu Chen 個人網站">
     <meta property="og:locale" content="zh_TW">
@@ -45,10 +47,13 @@
             position: relative;
             min-height: 300px;
             display: flex;
+            flex-direction: column; /* 【已修改】確保英雄區內容和手機選單能按 order 排列 */
             align-items: center;
             justify-content: center; 
         }
         header.hero-showcase .hero-content-wrapper {
+             /* 英雄文字內容的包裹器 */
+            order: 0; /*【新增】確保文字在選單之前或之後（根據選單的order） */
         }
 
         /* 圖示選單容器 (電腦版：左側) */
@@ -104,132 +109,179 @@
             opacity: 0.9;
         }
 
-        main.main-content-area {
-             /* 【新增】確保主要內容區域在有固定頂部選單時，不會被遮擋 (手機版) */
-        }
+        main.main-content-area {}
 
-        section {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-top: 30px;
-            padding: 40px 30px;   
-            max-width: 1040px;    
-            margin-left: auto;    
-            margin-right: auto;   
-        }
-
-        section h2 { 
-            text-align: center; font-size: 2em; color: #4A5568; 
-            margin-top: 0; 
-            margin-bottom: 30px; position: relative; 
-        }
-        section h2::after { 
-            content: ''; display: block; width: 60px; height: 3px; 
-            background-color: #764ba2; margin: 8px auto 0; border-radius: 2px; 
-        }
-        
-        #about p { font-size: 1.1em; text-align: justify; color: #555; margin-bottom: 1em; }
-        #about p:last-child { margin-bottom: 0; }
-
+        section { /* ... 省略與之前相同的 section 樣式 ... */ }
+        section h2 { /* ... */ }
+        section h2::after { /* ... */ }
+        #about p { /* ... */ }
+        .experience-item { /* ... */ } .experience-item h3 { /* ... */ } .experience-item .role { /* ... */ } .experience-item p { /* ... */ }
+        .skills-list { /* ... */ } .skills-list li { /* ... */ } .skills-list li:hover { /* ... */ }
+        #contact p { /* ... */ } #contact .email-link { /* ... */ } #contact .email-link:hover { /* ... */ } .contact-form-placeholder { /* ... */ }
+        footer { /* ... */ }
+        /* (複製貼上之前的 section, h2, #about p, .experience-item 系列, .skills-list 系列, #contact 系列, footer 樣式到這裡) */
+        section { background-color: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-top: 30px; padding: 40px 30px; max-width: 1040px; margin-left: auto; margin-right: auto; }
+        section h2 { text-align: center; font-size: 2em; color: #4A5568; margin-top: 0; margin-bottom: 30px; position: relative; }
+        section h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #764ba2; margin: 8px auto 0; border-radius: 2px; }
+        #about p { font-size: 1.1em; text-align: justify; color: #555; margin-bottom: 1em; } #about p:last-child { margin-bottom: 0; }
         .experience-item { margin-bottom: 25px; padding: 20px; background-color: #f9f9f9; border-left: 5px solid #667eea; border-radius: 8px; }
         .experience-item h3 { margin-top: 0; margin-bottom: 5px; color: #333; font-size: 1.4em; }
-        .experience-item .role { font-style: italic; color: #777; margin-bottom: 10px; display: block; }
-        .experience-item p { font-size: 1em; color: #666; margin-bottom: 0; }
-        
+        .experience-item .role { font-style: italic; color: #777; margin-bottom: 10px; display: block; } .experience-item p { font-size: 1em; color: #666; margin-bottom: 0; }
         .skills-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
         .skills-list li { background-color: #e9ecef; color: #495057; padding: 10px 20px; border-radius: 20px; font-size: 1em; font-weight: 500; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s ease, background-color 0.2s ease; }
         .skills-list li:hover { transform: translateY(-3px); background-color: #d0d9e2; }
-        
-        #contact p { text-align: center; font-size: 1.1em; margin-bottom: 1em; }
-        #contact p:last-child { margin-bottom: 0; }
-        #contact .email-link { color: #764ba2; text-decoration: none; font-weight: bold; } 
-        #contact .email-link:hover { text-decoration: underline; }
+        #contact p { text-align: center; font-size: 1.1em; margin-bottom: 1em; } #contact p:last-child { margin-bottom: 0; }
+        #contact .email-link { color: #764ba2; text-decoration: none; font-weight: bold; } #contact .email-link:hover { text-decoration: underline; }
         .contact-form-placeholder { text-align: center; margin-top: 20px; padding: 15px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; }
-        
-        footer { 
-            text-align: center; 
-            padding-top: 30px; 
-            padding-bottom: 30px;
-            margin-top: 40px; 
-            background-color: #333; 
-            color: #ccc; 
-            font-size: 0.9em; 
+        footer { text-align: center; padding-top: 30px; padding-bottom: 30px; margin-top: 40px; background-color: #333; color: #ccc; font-size: 0.9em; }
+
+
+        /* === NordVPN Popup 樣式 === */
+        .popup-overlay {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; /* 確保在最上層 */
         }
+        .popup-content {
+            background-color: #fff;
+            padding: 25px 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative; /* 為了關閉按鈕的定位 */
+        }
+        .close-popup-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #aaa;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .close-popup-btn:hover {
+            color: #333;
+        }
+        .popup-content h2 {
+            color: #2d3748; /* 深灰色標題 */
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .popup-content p {
+            color: #4a5568; /* 中灰色文字 */
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+        .promo-code {
+            background-color: #e2e8f0; /* 淺灰背景 */
+            color: #2d3748;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px dashed #cbd5e0;
+        }
+        .popup-cta-btn {
+            display: inline-block;
+            background-color: #4299e1; /* NordVPN 藍色系 */
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .popup-cta-btn:hover {
+            background-color: #2b6cb0; /* 深一點的藍色 */
+        }
+
 
         /* === 響應式設計：小螢幕調整 === */
         @media (max-width: 768px) {
-            body { /* 【新增】為 body 增加上邊距，避免內容被固定選單遮擋 */
-                padding-top: 56px; /* 這個值約等於下面固定選單的高度，您可以微調 */
+            body { 
+                padding-top: 0; /* 【已修改】移除因固定選單產生的 padding-top */
             }
-
             .container { 
                 padding: 0 15px;
             }
+            
+            header.hero-showcase {
+                padding: 40px 15px; /* 上下左右padding */
+                /* flex-direction: column; 已是預設 */
+            }
 
-            /* 手機版：固定在頂部的選單 */
+            /* 手機版選單：非固定，位於 Hero 內容下方 */
             nav.hero-icon-menu {
-                position: fixed; /* 【已修改】固定定位 */
-                top: 0;
-                left: 0;
-                width: 100%;    /* 【已修改】佔滿寬度 */
-                background-color: #ffffff; /* 【新增】設定背景色 (例如白色) */
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 【新增】加上陰影 */
-                z-index: 1001;  /* 【新增】確保在最上層 */
-
-                transform: none; /* 原本是 translateY(-50%)，固定定位後不再需要 */
-                flex-direction: row; /* 水平排列 */
-                justify-content: space-around; /* 圖示均勻分佈 */
-                align-items: center; /* 垂直居中項目 */
-                padding: 8px 10px; /* 選單本身的上下左右留白 */
-                gap: 5px; 
-                /* order: -1; /* 固定定位後，不再需要 order */
+                position: static; /* 【已修改】改回靜態定位 */
+                transform: none;
+                flex-direction: row; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+                width: auto; /* 【已修改】寬度由內容決定，或設為 fit-content */
+                padding: 10px 15px; /* 【已修改】選單本身的 padding */
+                gap: 10px; 
+                order: 1; /* 【已修改】放在 Hero 文字內容的下方 */
+                margin-top: 30px; /* 【新增】與上方 Hero 文字的間距 */
+                background-color: rgba(255, 255, 255, 0.1); /* 【新增】在紫色背景上的半透明背景 */
+                border-radius: 25px; /* 【新增】藥丸形狀的選單條 */
+                align-self: center; /* 【新增】讓選單條本身在 flex 容器中置中 */
+                /* 移除 fixed 相關的樣式: box-shadow, z-index 等 */
             }
 
             nav.hero-icon-menu a {
-                color: #333; /* 【已修改】在白色背景上，圖示和文字改為深色 */
-                font-size: 0.8em; 
-                padding: 6px 8px;
+                color: #fff; /* 【已修改】改回白色以適應紫色 Hero 背景 */
+                font-size: 0.9em; 
+                padding: 8px 10px;
                 min-width: auto; 
-                gap: 4px; 
-                border-radius: 6px; /* 可選：為每個連結加點小圓角 */
+                gap: 6px; 
             }
             nav.hero-icon-menu a:hover {
-                background-color: #f0f0f0; /* 【已修改】淺灰色背景 */
-                color: #764ba2; /* 主題色 */
+                background-color: rgba(255, 255, 255, 0.25); /* 【已修改】調整 hover 背景 */
+                color: #fff;
             }
 
             nav.hero-icon-menu a .icon-area {
-                font-size: 1.3em; 
-                /* width: 20px; */ /* Font Awesome 會自動調整 */
+                font-size: 1.2em; 
+                width: 20px;
             }
-
             nav.hero-icon-menu a .text-label {
-                font-size: 0.75em;
-                /* display: none; */ /* 如果空間非常小，可以考慮隱藏文字，但目前保留 */
+                font-size: 0.8em;
             }
             
-            /* Hero Section 在手機上的調整 */
-            header.hero-showcase {
-                padding: 40px 15px 40px 15px; /* 上下 padding，左右由 .container 控制 */
-                /* margin-top: 56px; */ /* 【移除】改由 body 的 padding-top 控制與選單的間距 */
-                /* position: relative; 仍然保持，因為電腦版選單依賴它 */
-            }
-
-            section {
-                padding: 30px 20px; 
-                margin-top: 25px;
-            }
-
             header.hero-showcase h1 { font-size: 2em; } 
             header.hero-showcase .subtitle { font-size: 1em; }
+            section { padding: 30px 20px; margin-top: 25px; }
             section h2 { font-size: 1.8em; }
             .skills-list { justify-content: space-around; }
+
+            .popup-content { /* 手機版彈窗可以稍微小一點 */
+                 padding: 20px;
+                 max-width: 90%;
+            }
+            .popup-content h2 { font-size: 1.3em;}
+            .popup-content p { font-size: 0.9em;}
+            .popup-cta-btn { padding: 10px 20px; font-size: 0.95em;}
+
         }
     </style>
 </head>
 <body>
     <header class="hero-showcase">
+        <div class="container hero-content-wrapper">
+            <h1>你好，我是 Tofu Chen！</h1>
+            <p class="subtitle">一位來自台灣，對科技充滿熱情的國中生、開發者，以及海微數位工作室的共同創辦人。</p>
+        </div>
         <nav class="hero-icon-menu">
             <a href="#about" title="關於我">
                 <span class="icon-area"><i class="fas fa-user"></i></span>
@@ -248,10 +300,6 @@
                 <span class="text-label">聯絡</span>
             </a>
         </nav>
-        <div class="container hero-content-wrapper">
-            <h1>你好，我是 Tofu Chen！</h1>
-            <p class="subtitle">一位來自台灣，對科技充滿熱情的國中生、開發者，以及海微數位工作室的共同創辦人。</p>
-        </div>
     </header>
 
     <main class="main-content-area">
@@ -260,42 +308,21 @@
             <p>我是一位就讀於國中的台灣學生，Tofu Chen。從小，我就對電腦和網路世界充滿好奇，特別著迷於網站是如何被創造與運作的。這份熱情引導我一頭栽進程式設計的領域，並且發現了其中的無限樂趣。透過不斷學習和實踐，我希望能創造出更多有趣且有價值的數位作品。</p>
             <p>對了，我的生日是國曆12月1日，如果你剛好記得，我會非常開心的！;)</p>
         </section>
-
         <section id="experience">
             <h2>我的角色與經歷</h2>
-            <div class="experience-item">
-                <h3>海微數位工作室</h3>
-                <span class="role">共同創辦人</span>
-                <p>海微數位專注數位轉型服務，結合網站開發、電子商務與 AI 技術，打造企業智能化新時代。立即了解數位轉型方案！</p>
-            </div>
-            <div class="experience-item">
-                <h3>迪斯中學</h3>
-                <span class="role">社群經營部門</span>
-                <p>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</p>
-            </div>
-            <div class="experience-item">
-                <h3>異界碎片</h3>
-                <span class="role">社群領導層</span>
-                <p>踏入「異界碎片」，我們不追夢，而是實現夢。這裡是異世尋夢者的聚集地，一場挑戰未知的冒險，一場感受異界之美的奇妙旅程。</p>
-            </div>
+            <div class="experience-item"><h3>海微數位工作室</h3><span class="role">共同創辦人</span><p>海微數位專注數位轉型服務，結合網站開發、電子商務與 AI 技術，打造企業智能化新時代。立即了解數位轉型方案！</p></div>
+            <div class="experience-item"><h3>迪斯中學</h3><span class="role">社群經營部門</span><p>提供輕鬆有趣的學習偏方，專注考試快速記憶，不重內涵！</p></div>
+            <div class="experience-item"><h3>異界碎片</h3><span class="role">社群領導層</span><p>踏入「異界碎片」，我們不追夢，而是實現夢。這裡是異世尋夢者的聚集地，一場挑戰未知的冒險，一場感受異界之美的奇妙旅程。</p></div>
         </section>
-
         <section id="skills">
             <h2>我的技能</h2>
-            <ul class="skills-list">
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Python</li>
-            </ul>
+            <ul class="skills-list"><li>HTML5</li><li>CSS3</li><li>Python</li></ul>
         </section>
-
         <section id="contact">
             <h2>聯絡我</h2>
             <p>若有任何疑問、合作提案，或只是想聊聊，都歡迎透過 Email 與我聯繫：</p>
             <p><a href="/cdn-cgi/l/email-protection#2652494053664e474f51434f4843520845494b" class="email-link"><span class="__cf_email__" data-cfemail="42362d2437022a232b35272b2c27366c212d2f">[email&#160;protected]</span></a></p>
-            <div class="contact-form-placeholder">
-                <p>小提示：本網站的聯絡表單功能正在努力建置中，敬請期待未來的更新！</p>
-            </div>
+            <div class="contact-form-placeholder"><p>小提示：本網站的聯絡表單功能正在努力建置中，敬請期待未來的更新！</p></div>
         </section>
     </main>
 
@@ -306,12 +333,51 @@
         </div>
     </footer>
 
+    <div id="nordvpn-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button id="close-popup-btn" class="close-popup-btn" aria-label="關閉彈窗">&times;</button>
+            <h2>本網站贊助商NordVPN ！</h2>
+            <img src="https://lh3.google.com/u/0/d/15ebQZqtKF8SyrtiT5BEACb9WXauoxZLG=w2560-h1356-iv1?auditContext=prefetch" alt="NordVPN Logo" style="width: 120px; margin-bottom: 15px;">
+            <p>保護您的網路安全與隱私，立即訂閱 NordVPN！</p>
+            <p>輸入優惠碼 <strong class="promo-code">tofu1201</strong> 享有特別折扣。</p>
+            <a href="https://nordvpn.com/zh-tw/special/?coupon=tofu1201" target="_blank" rel="noopener noreferrer" class="popup-cta-btn">立即購買</a>
+        </div>
+    </div>
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-TW', options);
+
+        // JavaScript for NordVPN Popup
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('nordvpn-popup');
+            const closeBtn = document.getElementById('close-popup-btn');
+
+            // 決定是否顯示彈窗 (例如：只顯示一次)
+            // 為了方便測試，這裡預設為總是顯示。
+            // 若要只顯示一次，可以取消註解下面的 localStorage 邏輯
+            // if (!localStorage.getItem('nordVpnPopupShown_tofu1201')) {
+            //    popup.style.display = 'flex';
+            // }
+            popup.style.display = 'flex'; // 測試時總是顯示
+
+            // 關閉按鈕事件
+            closeBtn.addEventListener('click', function() {
+                popup.style.display = 'none';
+                // localStorage.setItem('nordVpnPopupShown_tofu1201', 'true'); // 記錄已顯示
+            });
+
+            // 點擊背景遮罩關閉彈窗 (可選)
+            popup.addEventListener('click', function(event) {
+                if (event.target === popup) { // 確認點擊的是遮罩本身，而不是內容區域
+                    popup.style.display = 'none';
+                    // localStorage.setItem('nordVpnPopupShown_tofu1201', 'true'); // 記錄已顯示
+                }
+            });
+        });
     </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"93f9c8aaafc84a48","version":"2025.4.0-1-g37f21b1","r":1,"token":"f9a127da68ba4ef39742f29c4e17aa45","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
